@@ -42,9 +42,9 @@ namespace desafios_2
            /* Console.WriteLine("Valor cuota moderadora para citas generales de la EPS");
             Console.WriteLine("Ingrese valor total de su sueldo");
             double smmlv = 828116;
-            double t1 = 3000;
-            double t2 = 12000;
-            double t3 = 31600;
+            double t1 = 3200;
+            double t2 = 12700;
+            double t3 = 33500;
 
 
             double x = double.Parse(Console.ReadLine());
