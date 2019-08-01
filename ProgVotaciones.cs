@@ -27,7 +27,7 @@ namespace ejercicio4
             double abstencion = (totpob * mEdad/100) - votantes;
             //Codigo
 
-            bool ca = (nule < ((a + b) * 30 / 100));
+            bool ca = (nule < ((a + b) * 0.3));
             bool cb = ((a + b) > blanco);
             bool cc = (abstencion < votantes);
 
