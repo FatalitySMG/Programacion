@@ -4,54 +4,117 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ejercicios
+namespace CaseSwitch
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            //Ejercicio 1
-            //Console.WriteLine("Solucion 1");
-            //double y = 2;
-            //double z = 3;
-            //double pi = 3.14159265;
+        {  //Calculadora de costos de seguro social
 
-            //double t = Math.Sqrt((y * y) + (z * z));
-            //double c = (Math.Atan(z / y) * (180/pi));
-            //double a = (Math.Atan(y / z) * (180 / pi));
+            Console.WriteLine("¿Es un trabajador dependiente (1) o independiente (2)?");
+            int opcion = int.Parse(Console.ReadLine());
 
-            //Console.WriteLine("t =" + t);
-            //Console.WriteLine("c =" + c);
-            //Console.WriteLine("a =" + a);
+            Console.WriteLine("Ingrese su sueldo total");
+            double sueldo = double.Parse(Console.ReadLine());
+            double smmlv = 828116;
+            double bc = sueldo * 40 / 100;
+            bool c = (bc > smmlv);
+            switch (c)
+            {
+                case true:
+                    bc = sueldo * 0.4;
+                        break;
+                case false:
+                    bc = smmlv;
+                        break;
+            }
+            double pensionD = bc * 4 / 100;
+            double pensionI = bc * 16 / 100;
+            double epsD = bc * 4 / 100;
+            double epsI = bc * 12.5 / 100;
+            double arlD = bc * 0;
+            double arl1 = bc * 0.522 / 100;
+            double arl2 = bc * 1.022 / 100;
+            double arl3 = bc * 2.436 / 100;
+            double arl4 = bc * 4.350 / 100;
+            double arl5 = bc * 6.960 / 100;
+            double sueldord = (sueldo - pensionD - arlD - epsD);
+            double dedd = pensionD + arlD + epsD;
+            double ded1 = pensionD + arl1 + epsD;
+            double ded2 = pensionD + arl2 + epsD;
+            double ded3 = pensionD + arl3 + epsD;
+            double ded4 = pensionD + arl4 + epsD;
+            double ded5 = pensionD + arl5 + epsD;
+            double sueldor1 = (sueldo - pensionD - arl1 - epsD);
+            double sueldor2 = (sueldo - pensionD - arl2 - epsD);
+            double sueldor3 = (sueldo - pensionD - arl3 - epsD);
+            double sueldor4 = (sueldo - pensionD - arl4 - epsD);
+            double sueldor5 = (sueldo - pensionD - arl5 - epsD);
+            double sanuald = (sueldo + (sueldord * 12));
+            double sanuali = (sueldo * 12);
+           
+            
 
-            //Ejercicio 2
-            //Console.WriteLine("Solucion 2");
-            //double t = 3.61;
-            //double a = 33.69;
-            //double pi = 3.14159265;
 
-            //double y = t * Math.Sin(a * pi/180);
-            //double z = Math.Sqrt((t * t) - (y * y));
-            //double c = 180 - (90 + a);
+            switch (opcion)
+            {
+                case 1:
+                    Console.WriteLine("Sueldo incial =" + sueldo);
+                    Console.WriteLine("Pago de Pension =" + pensionD);
+                    Console.WriteLine("Pago de EPS =" + epsD);
+                    Console.WriteLine("Pago de ARL =" + arlD);
+                    Console.WriteLine("Valor total de deduccion =" + dedd);
+                    Console.WriteLine("sueldo total despues de la pagar el seguro social =" + sueldord);
+                    Console.WriteLine("Sueldo anual con bonificaciones =" + sanuald);
+                    break;
 
-            //Console.WriteLine("Y =" + y);
-            //Console.WriteLine("c =" + c);
-            //Console.WriteLine("z =" + z);
+                case 2:
+                    Console.WriteLine(" Seleccione el riesgo de trabajo que tiene (1,2,3,4,5)");
+                    double riesgo = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Sueldo incial =" + sueldo);
+                    Console.WriteLine("Pago de Pension =" + pensionI);
+                    Console.WriteLine("Pago de EPS =" + epsI);
+                    Console.WriteLine("Salario anual con bonificacniones =" + sanuali);
 
-            //Ejercicio 3
-            //Console.WriteLine("Solucion 3");
-            //double c = 56.31;
-            //double z = 3;
-            //double pi = 3.14159265;
+                    switch (riesgo)
+                    {
+                        case 1:
+                            Console.WriteLine("Pago de ARL" + arl1);
+                            Console.WriteLine("Valor total de deduccion =" + ded1);
+                            Console.WriteLine("Sueldo total despues de pagar el seguro social =" + sueldor1);
+                            break;
+                        case 2:
+                            Console.WriteLine("Pago de ARL" + arl2);
+                            Console.WriteLine("Valor total de deduccion =" + ded2);
+                            Console.WriteLine("Sueldo total despues de pagar el seguro social =" + sueldor2);
+                            break;
+                        case 3:
+                            Console.WriteLine("Pago de ARL" + arl3);
+                            Console.WriteLine("Valor total de deduccion =" + ded3);
+                            Console.WriteLine("Sueldo total despues de pagar el seguro social =" + sueldor3);
+                            break;
+                        case 4:
+                            Console.WriteLine("Pago de ARL" + arl4);
+                            Console.WriteLine("Valor total de deduccion =" + ded4);
+                            Console.WriteLine("Sueldo total despues de pagar el seguro social =" + sueldor4);
+                            break;
+                        case 5:
+                            Console.WriteLine("Pago de ARL" + arl5);
+                            Console.WriteLine("Valor total de deduccion =" + ded5);
+                            Console.WriteLine("Sueldo total despues de pagar el seguro social =" + sueldor5);
+                            break;
+                        default:
+                            Console.WriteLine("Hya un error con el nivel de riesgo");
+                            break;
+                    }
+                    break;
 
-            //double y = z / Math.Tan(c * pi/180);
-            //double t = z / Math.Sin(c * pi/180);
-            //double a = 180 - (90 + c);
+                default:
+                    Console.WriteLine("Hay un error con la eleccion de modo de trabajo");
+                    break;
 
-            //Console.WriteLine("Y =" + y);
-            //Console.WriteLine("t =" + t);
-            //Console.WriteLine("a =" + a);
 
+            }
         }
     }
 }
