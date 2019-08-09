@@ -13,8 +13,7 @@ namespace BlackJack
             Console.WriteLine("Bienvenido a BlackJack: ");
 
             Random aleatorio = new Random();
-            int carta1 = 0, carta2 = 0, total = 0;
-            int sumaCartas = carta1 + carta2;
+            int carta1 = 0, carta2 = 0, total = 0, sumaCartas = carta1 + carta2;
             string continuar = "s";
 
             while(continuar == "s" && total < 21)
@@ -23,8 +22,7 @@ namespace BlackJack
                 Console.WriteLine("Carta dada: " + carta1);
                 total += carta1;
                 if (total < 21)
-                {
-                    
+                {  
                     Console.WriteLine("Total: " + total);
                     Console.WriteLine("¿Desea otra Carta? (s/n) ");
                     continuar = Console.ReadLine();
