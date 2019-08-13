@@ -35,7 +35,7 @@ namespace BlackJack
                 else
                 {
                     Console.WriteLine("Eliminado");
-                    Console.WriteLine("Total: " +total);
+                    Console.WriteLine("Total: " + total);
                 }
             }
         }
