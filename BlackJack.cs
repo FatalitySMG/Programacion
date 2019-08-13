@@ -25,7 +25,7 @@ namespace BlackJack
                 {  
                     Console.WriteLine("Total: " + total);
                     Console.WriteLine("¿Desea otra Carta? (s/n) ");
-                    continuar = Console.
+                    continuar = Console.ReadLine();
                 }
                 
                 else
