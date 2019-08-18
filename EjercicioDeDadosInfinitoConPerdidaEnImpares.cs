@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +31,6 @@ namespace JuegoDeDado2Numero2ConFinalEn1210
                     repetir = Console.ReadLine();
                     inicial += 1;
                     total += dado1;
-
                 }
                 dado1 = aleatorio.Next(1, 13);
                 Console.WriteLine("Sacaste: " + dado1);
@@ -47,15 +46,23 @@ namespace JuegoDeDado2Numero2ConFinalEn1210
                 if (dado1 == 12)
                 {
                     contador12 = 1;
-                    Console.WriteLine("Si sacas un 10 en el siguiente turno ganaras");
-                    if (dado1 == 10)
-                    {
-                        Console.WriteLine("Ganaste");
-                        break;
-                    }
+                    Console.WriteLine("Si sacas un 10 en el siguiente turno ganas");
                 }
-                else contador12 = 0;
 
+                if (contador12 == 1)
+                {
+                    if (dado1 == 10) contador10 = 1;
+                    else contador10 = 0;
+                }
+                if (dado1 != 12) contador12 = 0;
+
+                if (contador10 + contador10 ==2)
+                {
+                    Console.WriteLine("Ganaste");
+                    Console.WriteLine("Total: " + total);
+                    break;
+                }     
+                
                 Console.WriteLine("Quieres seguir jugando? (s/n)");
                 continuar = Console.ReadLine();
             }
