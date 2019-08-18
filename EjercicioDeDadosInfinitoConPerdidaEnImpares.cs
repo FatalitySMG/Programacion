@@ -48,9 +48,8 @@ namespace JuegoDeDado2Numero2ConFinalEn1210
                 {
                     contador12 = 1;
                     Console.WriteLine("Si sacas un 10 en el siguiente turno ganaras");
-                    if (contador12 == 1)
+                    if (dado1 == 10)
                     {
-                        contador10 = 1;
                         Console.WriteLine("Ganaste");
                         break;
                     }
