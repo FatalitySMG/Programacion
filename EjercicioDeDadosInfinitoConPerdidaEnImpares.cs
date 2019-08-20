@@ -56,7 +56,7 @@ namespace JuegoDeDado2Numero2ConFinalEn1210
                 }
                 if (dado1 != 12) contador12 = 0;
 
-                if (contador10 + contador10 ==2)
+                if (contador12 + contador10 ==2)
                 {
                     Console.WriteLine("Ganaste");
                     Console.WriteLine("Total: " + total);
