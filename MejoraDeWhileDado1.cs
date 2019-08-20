@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,53 +12,58 @@ namespace MejoraDeWhile
         {
             Console.WriteLine("Bienvenido al juego de dado infinito: ");
             Console.WriteLine("Las reglas son las siguientes:");
-            Console.WriteLine("1. Si sacas 2 veces 1 asi no se consecutivo pierdes");
-            Console.WriteLine("2. Si sacas 3");
-            Console.WriteLine("3. Si sacas un par de 1's pierdes");
+            Console.WriteLine("1. Cada 3 turnos lanzas 3 dados y si cae par ganas");
+            Console.WriteLine("2. Solo puedes recuperar hasta 3 vidas");
+            Console.WriteLine("3. Cada 2 turnos pierndes una vida");
 
 
             Random aleatorio = new Random();
-            int dado1 = 0, SumaDeUnos = 0, total = 0, sumaDeSeis = 0, vidas = 3, SumaDeUnosPar = 0, vidasRecuperadas =0;
+            int dado1 = 0, SumaDeUnos = 0, total = 0, sumaDeSeis = 0, vidas = 3, SumaDeUnosPar = 0, vidasRecuperadas = 0, turnos = 0,dado2 = 0, par = 0;
             string continuar = "s";
 
 
             while (continuar == "s")
             {
-                dado1 = aleatorio.Next(1, 7);
-                Console.WriteLine("Sacaste " + dado1);
+                turnos += 1;
+                Console.WriteLine("Turno: " + turnos);
 
-                total += dado1;
-
-
-                if (dado1 == 1)
+                if (turnos%3 == 0)
                 {
-                    SumaDeUnos += 1;                      // Si el resultado es 1 entonces el contador de 1 aumenta en 1
+                    dado1 = aleatorio.Next(1, 7);
+                    dado2 = aleatorio.Next(1, 7);
+                    Console.WriteLine("Sacaste " + dado1 + " y " + dado2);
+                    total += dado1 + dado2;
 
-                    if (SumaDeUnos % 2 == 0)             // si el contador de unos es un numero par el contador de unos total aumenta en 1
-                    {         
-                        vidas -= 1;
-                        total -= 10;
-                    }
-                }
-                if (vidasRecuperadas < 3)
-                {
-                    if (dado1 == 6) sumaDeSeis += 1;
-
-                    if (dado1 != 6) sumaDeSeis = 0;
-
-                    if (sumaDeSeis == 2)
+                    if (dado1 == dado2)
                     {
-                        vidas += 1;
-                        vidasRecuperadas += 1;
+                        par = 1;
                     }
-
+                }
+                else
+                {
+                    dado1 = aleatorio.Next(1, 7);
+                    Console.WriteLine("Sacaste " + dado1);
+                    total += dado1;
                 }
 
+                if (turnos%2 ==0)
+                {
+                    vidas -= 1;
+                }
 
-                if (vidas == 0 )
+                if (par ==1)
                 {
                     Console.WriteLine("Vidas: " + vidas);
-                    Console.WriteLine("Numero de unos: " + SumaDeUnos);
+                    Console.WriteLine("Numero de seis: " + sumaDeSeis);
+                    Console.WriteLine("Ganaste");
+                    Console.WriteLine("Total puntos: " + total);
+                    break;
+                }
+
+
+                if (vidas == 0)
+                {
+                    Console.WriteLine("Vidas: " + vidas);
                     Console.WriteLine("Numero de seis: " + sumaDeSeis);
                     Console.WriteLine("Perdiste");
                     Console.WriteLine("Total puntos: " + total);
@@ -69,7 +74,6 @@ namespace MejoraDeWhile
                 {
                     Console.WriteLine("Vidas: " + vidas);
                     Console.WriteLine("Vidas Recuperadas: " + vidasRecuperadas);
-                    Console.WriteLine("Numero de unos: " + SumaDeUnos);
                     Console.WriteLine("Numero de seis: " + sumaDeSeis);
                     Console.WriteLine("Total: " + total);
                     Console.WriteLine("Quieres seguir Jugando? (s/n)");
