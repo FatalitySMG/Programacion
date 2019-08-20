@@ -17,7 +17,7 @@ namespace JuegoDeDado2Numero2ConFinalEn1210
             Console.WriteLine("3. Si sacas un numero impar pierdes");
 
             Random aleatorio = new Random();
-            int dado1 = 0, total = 0, inicial = 0, contador12 = 0, contador10 = 0;
+            int dado1 = 0, total = 0, inicial = 0, contador12 = 0, contador10 = 0, final = 0;
             string continuar = "s";
             string repetir = "s";
 
@@ -31,7 +31,15 @@ namespace JuegoDeDado2Numero2ConFinalEn1210
                     repetir = Console.ReadLine();
                     inicial += 1;
                     total += dado1;
+                    
+                    if (repetir != "s") 
+                    {
+                        final = 1;
+                        break;
+                    }    
                 }
+                if (final ==1) break;
+                
                 dado1 = aleatorio.Next(1, 13);
                 Console.WriteLine("Sacaste: " + dado1);
                 total += 1;
