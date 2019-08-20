@@ -47,6 +47,7 @@ namespace MejoraDeWhile
                         vidas += 1;
                         vidasRecuperadas += 1;
                     }
+                 else sumaDeSeis = 0;
 
                 }
 
