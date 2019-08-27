@@ -13,7 +13,7 @@ namespace BlackJack
             Console.WriteLine("Bienvenido a BlackJack: ");
 
             Random aleatorio = new Random();
-            int carta1 = 0, carta2 = 0, total = 0, sumaCartas = carta1 + carta2, jugador = 0, n = 5, m = 2, contadorJ = 5;
+            int carta1 = 0, carta2 = 0, total = 0, sumaCartas = carta1 + carta2, jugador = 0, n = 5, m = 2, contadorJ = 0;
             string continuar = "s", ganador = "Nadie";
 
             Console.WriteLine("Ingrese el numero de jugadores (minimo 2 maximo 5)");
@@ -25,7 +25,7 @@ namespace BlackJack
                 jugador = int.Parse(Console.ReadLine());
             }
 
-            while (jugador < contadorJ)
+            while (jugador > contadorJ)
             {
                 Console.WriteLine("Inicio del juego");
 
@@ -61,12 +61,13 @@ namespace BlackJack
                         break;
                     }
                 }
-                Console.WriteLine("Gandaor: " + ganador);
-                Console.WriteLine("Gracias por participar ");
-                jugador += 1;
+
+                jugador -= 1;
 
 
             }
+            Console.WriteLine("Gandaor: " + ganador);
+            Console.WriteLine("Gracias por participar ");
         }
     }
 }
