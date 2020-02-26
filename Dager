@@ -1,0 +1,19 @@
+            //Con este programa se busca crear facturas en las que se les haga ciertos descuentos a los clientes
+            Console.WriteLine("Bienvenido a almacenes Dager, donde todos nuestros PCs cuestan 1 millon \n Ingrese su  nombre por favor ");
+            string Nombre = Console.ReadLine();
+            Int32 ValorPC = 1000000;
+            float Descuento = 0;
+            Console.WriteLine("\nBienvenido:" + "" + Nombre + "\n Para nosotros es muy importante ofrecerle un excelente servicio y por eso\n queremos ofrecerle " +
+                "las mejores ofertas en productos, por lo tanto tenemos los siguientes descuentos: \n" +
+                "1. Si compra menos de 5 computadoras le ofrecemos el 10% de descuento en la compra total\n" +
+                "2. Si compra 5 computadoras o hasta 9 le ofrecemos el 20% de descuento en la compra total\n" +
+                "3. Si compra 10 o mas computadoras le damos el 40% de desceunto en su compra total.\n\n" +
+                "Cuantas computadoras desea comprar?");
+            short NroDePCs = short.Parse(Console.ReadLine());
+
+            if (NroDePCs < 5) Descuento = 0.1f;
+            else if (NroDePCs >= 5 && NroDePCs < 10) Descuento = 0.2f;
+            else Descuento = 0.4f;
+            Console.WriteLine("Factura numero: " + 1 + "\nNombre del cliente: " + Nombre + "\nCantidad de Computadoras compradas: " + NroDePCs + "\nPrecio unitario: " + ValorPC + "\n" +
+                "Precio total: " + (NroDePCs * ValorPC) + "\nDescuento obtenido: " + (Descuento* 100) + "%\nValor total a pagar: " + ((ValorPC * NroDePCs) - (ValorPC *NroDePCs)*Descuento));
+            Console.ReadKey();
